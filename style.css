@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color:black;
+  color: white;
+  background-image: url("images/background.png");
+  padding:32px ;
+}
+
+header {
+  font-size: 42px;
+  font-family: 'Anton', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.match{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.line{
+  flex-grow: 1;
+  border: 2px solid #1EB720;
+}
+
+.match h1{
+  padding:16px;
+}
+
+/* === Cards === */
+
+.picks-container {
+  display: grid;
+  grid-template-columns:  repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto; 
+}
+
+.card {
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  min-height: 350px;
+}
+
+.card::before {
+  background-position: center;
+  background-size: cover;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.card:hover {
+  border: 6px solid #E22859;
+}
+
+.card:hover .check {
+  opacity: 1;
+}
+
+.card:hover .accept {
+  opacity: 1;
+}
+
+.card.de_inferno::before {
+  background-image: url('images/de_inferno.jpg');
+}
+
+.card.de_mirage::before {
+  background-image: url('images/de_mirage.jpg');
+}
+
+.card.de_nuke::before {
+  background-image: url('images/de_nuke.jpg');
+}
+
+.card.de_cache::before {
+  background-image: url('images/de_cache.jpg');
+}
+
+.card.de_dust2::before {
+  background-image: url('images/de_dust2.jpg');
+}
+
+.card.de_overpass::before {
+  background-image: url('images/de_overpass.jpg');
+}
+
+.card.de_vertigo::before {
+  background-image: url('images/de_vertigo.jpg');
+}
+
+.card.de_cache::before {
+  background-image: url('images/de_cache.jpg');
+}
+
+.card.de_train::before {
+  background-image: url('images/de_train.jpg');
+}
+
+.card.de_cobblestone::before {
+  background-image: url('images/de_cobblestone.jpg');
+}
+
+.accept {
+  background-color: #E22859;
+  font-family: Anton;
+  height: 40px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 0.3s ease-in-out;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.check {
+  align-items: center;
+  background-color: #E22859;
+  border-radius: 50%;
+  display: flex;
+  font-size: 42px;
+  height: 60px;
+  justify-content: center;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease-in-out;
+  width: 60px;
+}
+
+.check i {
+  color: white;
+}
+
+.map-name {
+  bottom: 0;
+  font-family: Inter;
+  font-weight: 700;
+  left: 50%;
+  opacity: 1;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease-in-out;
+  width: 100%;
+}
+
+.map-name h2 {
+  color: white;
+  font-size: 2rem;
+  margin: 0;
+  padding-bottom: 10px;
+  text-shadow: 1px 1px #000;
+}
+
+.selected::before {
+  filter: grayscale(100%);
+}
+
+.selected{
+  border: 6px solid #f00030;
+  cursor: not-allowed;
+  /*overflow: hidden;*/
+}
+
+.selected::before {
+  filter: grayscale(100%);
+}
+
+.selected .accept, .selected .check {
+  opacity: 1;
+}
+
+.picked  {
+  border: 6px solid #1EB720;
+  cursor: not-allowed;
+}
+
+.card.picked.disable-hover:hover {
+  border: 6px solid #1EB720;
+}
+
+.card.picked.disable-hover:hover .check {
+  opacity: 0;
+}
+
+.card.picked.disable-hover:hover .accept {
+  opacity: 0;
+}
